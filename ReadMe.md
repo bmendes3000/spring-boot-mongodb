@@ -9,13 +9,13 @@ Also created simple rest for samples.
 ## Motivation
 This project have objective, remove doubts about integration spring-boot and mongodb, also show the patterns and form of implementations rest.
 
-## Instalation
+## Installation
 
 ### For generate build of the JAR:
-   __mvn clean install__
+   __mvn clean install spring-boot:run__
 
 
-### Develop and run in eclipse:
+### Develop in eclipse:
    __mvn clean install eclipse:eclipse__
 
 Any doubts, please, call me.
