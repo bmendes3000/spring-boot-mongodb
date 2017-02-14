@@ -1,7 +1,5 @@
 package org.br.spring.mongo.controllers;
 
-import java.util.List;
-
 import org.br.spring.mongo.services.UserService;
 import org.br.spring.mongo.vos.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
