@@ -2,35 +2,35 @@ package org.br.spring.mongo.daos;
 
 import java.util.List;
 
-import org.br.spring.mongo.vos.UserVO;
+import org.br.spring.mongo.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository("userRepository")
-public interface UserRepository extends MongoRepository<UserVO, String> {
+public interface UserRepository extends MongoRepository<User, String> {
 	/**
 	 * Query responsible by return user by field id
 	 * @param id {@link String}
-	 * @return {@link UserVO}
+	 * @return {@link User}
 	 */
 	@Query("{ id: ?0 }")
-	UserVO findById(final String id);
+	User findById(final String id);
 	
 	/**
 	 * Query responsible by return users by field name 
 	 * @param userName {@link String}
-	 * @return {@link UserVO}
+	 * @return {@link User}
 	 */
 	@Query("{ name: { $text: { $search: ?0 } } }")
-	List<UserVO> findByName(final String name);
+	List<User> findByName(final String name);
 	/**
 	 * Query responsible by return user by field email
 	 * @param email {@link String}
-	 * @return {@link UserVO}
+	 * @return {@link User}
 	 */
 	@Query("{ email: ?0 }")
-	UserVO findByEmail(final String email);
+	User findByEmail(final String email);
 	
 	
 }

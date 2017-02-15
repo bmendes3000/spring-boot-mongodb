@@ -3,6 +3,7 @@ package org.br.spring.mongo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 /**
  * Class Main to start project.
  * @author Bruno Mendes
@@ -16,6 +17,7 @@ import org.springframework.context.annotation.ComponentScan;
 		"org.br.spring.mongo.daos",
 		"org.br.spring.mongo.vos"
 })
+@EnableMongoRepositories
 public class Application {
 	/**
 	 * Method responsible start project.

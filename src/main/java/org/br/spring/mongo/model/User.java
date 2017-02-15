@@ -1,11 +1,13 @@
-package org.br.spring.mongo.vos;
+package org.br.spring.mongo.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-public class UserVO {
+@Document
+public class User {
 	/**
 	 * Id user
 	 */
@@ -33,7 +35,7 @@ public class UserVO {
     /**
      * Constructor default of the value object.
      */
-    public UserVO() {
+    public User() {
     	super();
 	}
 	/**
@@ -44,7 +46,7 @@ public class UserVO {
 	 * @param phone {@link String}
 	 * @param password {@link String}
 	 */
-    public UserVO(String id, String name, String email, String phone, String password) {
+    public User(String id, String name, String email, String phone, String password) {
 		super();
 		this.id = id;
 		this.name = name;

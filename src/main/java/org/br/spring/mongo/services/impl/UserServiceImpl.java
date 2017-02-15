@@ -3,8 +3,8 @@ package org.br.spring.mongo.services.impl;
 import java.util.List;
 
 import org.br.spring.mongo.daos.UserRepository;
+import org.br.spring.mongo.model.User;
 import org.br.spring.mongo.services.UserService;
-import org.br.spring.mongo.vos.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 /**
@@ -23,31 +23,37 @@ public class UserServiceImpl implements UserService {
 	
 	
 	@Override
-	public void save(final UserVO user) {
+	public User save(final User user) {
 		// save new user in mongodb
-		repository.insert(user);
+		return repository.insert(user);
 	}
 
 	@Override
-	public UserVO findById(final String id) {
+	public User findById(final String id) {
 		// return user by id
 		return repository.findById(id);
 	}
 
 	@Override
-	public List<UserVO> findByName(final String name) {
+	public List<User> findByName(final String name) {
 		// return user by name
 		return repository.findByName(name);
 	}
 
 	@Override
-	public UserVO findByEmail(final String email) {
+	public User findByEmail(final String email) {
 		// return user by email
 		return repository.findByEmail(email);
 	}
+	
+	@Override
+	public List<User> findAll() {
+		// return all users
+		return repository.findAll();
+	}
 
 	@Override
-	public void update(final UserVO user) {
+	public void update(final User user) {
 		// alter user in mongodb
 		repository.save(user);
 	}
@@ -55,7 +61,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void remove(final String id) {
 		//find user by id
-		UserVO user = findById(id);
+		User user = findById(id);
 		
 		// remove user in mongodb
 		repository.delete(user);
